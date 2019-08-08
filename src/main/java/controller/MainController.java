@@ -39,6 +39,7 @@ public class MainController {
         System.out.println("get register");
         return "reg";
     }
+
     @PostMapping("register")
     public String postOnRegPage(
             @RequestParam String firstName,
