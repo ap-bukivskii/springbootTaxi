@@ -2,15 +2,12 @@ package controller;
 
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.WebApplicationContext;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,21 +20,21 @@ public class MainController {
         System.out.println("index");
         System.out.println(usersList);
 
-        return "index";
+        return "index_template";
     }
 
     @GetMapping("users")
     public String viewUsers(Model model){
         System.out.println(usersList);
-        model.addAttribute("usersList",usersList);
+        model.addAttribute("usersList", usersList);
         System.out.println("view users");
-        return "users";
+        return "users_template";
     }
 
     @GetMapping("register")
     public String viewRegPage(){
         System.out.println("get register");
-        return "reg";
+        return "reg_template";
     }
 
     @PostMapping("register")
@@ -52,7 +49,7 @@ public class MainController {
         usersList.add(new User(firstName,lastName,email,password));
         System.out.println(usersList);
         //model.addAttribute("usersList", usersList);
-        return "reg";
+        return "reg_template";
     }
 
 }
